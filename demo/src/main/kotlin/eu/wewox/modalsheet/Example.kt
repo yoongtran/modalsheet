@@ -10,6 +10,10 @@ enum class Example(
     val label: String,
     val description: String,
 ) {
+    M3ModalBottomSheet(
+        "M3 Modal Bottom Sheet",
+        "Basic modal sheet usage"
+    ),
     SimpleModalSheet(
         "Simple Modal Sheet",
         "Basic modal sheet usage"

@@ -2,17 +2,16 @@
 
 package eu.wewox.modalsheet.screens
 
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Button
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
+import androidx.compose.material3.Button
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -25,7 +24,6 @@ import eu.wewox.modalsheet.ExperimentalSheetApi
 import eu.wewox.modalsheet.ModalSheet
 import eu.wewox.modalsheet.ui.components.TopBar
 import eu.wewox.modalsheet.ui.theme.SpacingMedium
-import eu.wewox.modalsheet.ui.theme.SpacingSmall
 
 /**
  * Showcases the most simple usage of the modal sheet composable.
@@ -75,8 +73,7 @@ fun SimpleModalSheet(
         onVisibleChange = onVisibleChange
     ) {
         Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(SpacingSmall),
+
             modifier = Modifier
                 .fillMaxWidth()
                 .navigationBarsPadding()
@@ -84,15 +81,13 @@ fun SimpleModalSheet(
         ) {
             Text(
                 text = title,
-                style = MaterialTheme.typography.h4
+                style = MaterialTheme.typography.headlineMedium
             )
             Text(
                 text = "Swipe down, tap on scrim above, tap on hardware " +
                     "back button or use a button below to close modal.",
             )
-            Button(onClick = { onVisibleChange(false) }) {
-                Text(text = "Close modal sheet")
-            }
+
         }
     }
 }

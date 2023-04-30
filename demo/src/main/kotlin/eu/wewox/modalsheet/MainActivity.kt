@@ -12,10 +12,10 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.Icon
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowRight
 import androidx.compose.runtime.Composable
@@ -31,6 +31,7 @@ import eu.wewox.modalsheet.screens.DynamicModalSheetScreen
 import eu.wewox.modalsheet.screens.ScrollableModalSheetScreen
 import eu.wewox.modalsheet.screens.SheetAboveBottomBarScreen
 import eu.wewox.modalsheet.screens.SheetStateModalSheetScreen
+import eu.wewox.modalsheet.screens.M3BottomModalSheetScreen
 import eu.wewox.modalsheet.screens.SimpleModalSheetScreen
 import eu.wewox.modalsheet.ui.components.TopBar
 import eu.wewox.modalsheet.ui.theme.ModalSheetDemoTheme
@@ -57,6 +58,7 @@ class MainActivity : ComponentActivity() {
                 Crossfade(targetState = example) { selected ->
                     when (selected) {
                         null -> RootScreen(onExampleClick = { example = it })
+                        Example.M3ModalBottomSheet -> M3BottomModalSheetScreen()
                         Example.SimpleModalSheet -> SimpleModalSheetScreen()
                         Example.SheetAboveBottomBar -> SheetAboveBottomBarScreen()
                         Example.DynamicModalSheet -> DynamicModalSheetScreen()
@@ -87,11 +89,11 @@ private fun RootScreen(onExampleClick: (Example) -> Unit) {
                     Column(modifier = Modifier.weight(1f)) {
                         Text(
                             text = it.label,
-                            style = MaterialTheme.typography.h6
+                            style = MaterialTheme.typography.headlineMedium
                         )
                         Text(
                             text = it.description,
-                            style = MaterialTheme.typography.body2
+                            style = MaterialTheme.typography.bodyMedium
                         )
                     }
                     Icon(

@@ -11,12 +11,12 @@ import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.GenericShape
-import androidx.compose.material.Button
-import androidx.compose.material.ButtonDefaults
-import androidx.compose.material.Icon
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ThumbUp
 import androidx.compose.runtime.Composable
@@ -72,8 +72,8 @@ private fun CustomModalSheet(
         cancelable = false,
         shape = createWaveShape(),
         elevation = 0.dp,
-        backgroundColor = MaterialTheme.colors.secondary,
-        scrimColor = MaterialTheme.colors.primary.copy(alpha = 0.65f),
+        backgroundColor = MaterialTheme.colorScheme.secondary,
+        scrimColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.65f),
         onVisibleChange = { /* NoOp */ }
     ) {
         Column(
@@ -87,7 +87,7 @@ private fun CustomModalSheet(
             Icon(
                 imageVector = Icons.Default.ThumbUp,
                 contentDescription = null,
-                tint = MaterialTheme.colors.primary,
+                tint = MaterialTheme.colorScheme.primary,
                 modifier = Modifier
                     .padding(24.dp)
                     .size(96.dp)
@@ -97,7 +97,6 @@ private fun CustomModalSheet(
             )
             Button(
                 onClick = onDismiss,
-                elevation = ButtonDefaults.elevation(0.dp, 0.dp),
             ) {
                 Text(text = "Close modal sheet")
             }

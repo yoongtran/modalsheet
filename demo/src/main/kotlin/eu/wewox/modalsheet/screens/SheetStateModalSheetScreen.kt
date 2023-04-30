@@ -1,4 +1,4 @@
-@file:OptIn(ExperimentalSheetApi::class, ExperimentalMaterialApi::class)
+@file:OptIn(ExperimentalSheetApi::class)
 
 package eu.wewox.modalsheet.screens
 
@@ -10,20 +10,18 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.material.Button
-import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.Icon
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.ModalBottomSheetState
-import androidx.compose.material.ModalBottomSheetValue
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
+import androidx.compose.material3.Button
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.KeyboardArrowDown
 import androidx.compose.material.icons.rounded.KeyboardArrowLeft
 import androidx.compose.material.icons.rounded.KeyboardArrowRight
 import androidx.compose.material.icons.rounded.KeyboardArrowUp
-import androidx.compose.material.rememberModalBottomSheetState
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -45,6 +43,7 @@ import kotlinx.coroutines.launch
 /**
  * Showcases the most lower-level [ModalSheet] usage with [ModalBottomSheetState].
  */
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SheetStateModalSheetScreen() {
     Scaffold(
@@ -53,8 +52,7 @@ fun SheetStateModalSheetScreen() {
         val scope = rememberCoroutineScope()
         var pageIndex by remember { mutableStateOf(0) }
         val sheetState = rememberModalBottomSheetState(
-            skipHalfExpanded = true,
-            initialValue = ModalBottomSheetValue.Hidden,
+            skipPartiallyExpanded = true,
         )
 
         Box(
@@ -75,7 +73,7 @@ fun SheetStateModalSheetScreen() {
             }
         }
 
-        PageModalSheet(
+        /*PageModalSheet(
             sheetState = sheetState,
             pageIndex = pageIndex,
             onNext = {
@@ -96,10 +94,10 @@ fun SheetStateModalSheetScreen() {
                     }
                 }
             },
-        )
+        )*/
     }
 }
-
+/*
 @Composable
 private fun PageModalSheet(
     sheetState: ModalBottomSheetState,
@@ -137,7 +135,7 @@ private fun PageModalSheet(
             }
         }
     }
-}
+}*/
 
 private data class Page(
     val title: String,

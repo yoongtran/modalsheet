@@ -12,12 +12,12 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Button
-import androidx.compose.material.ButtonDefaults
-import androidx.compose.material.LocalTextStyle
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.LocalTextStyle
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -116,7 +116,7 @@ private fun CounterScreen() {
         ) {
             Text(
                 text = "Hello from Counter",
-                style = MaterialTheme.typography.h4
+                style = MaterialTheme.typography.headlineMedium
             )
             Text(
                 text = "Modal also can share state with a scope where it is placed. For example a counter value.",
@@ -165,7 +165,7 @@ private fun ProfileScreen() {
             ) {
                 Text(
                     text = "Hello from Profile",
-                    style = MaterialTheme.typography.h4
+                    style = MaterialTheme.typography.headlineMedium
                 )
                 Text(
                     text = "Modal can access scope states and modify them, thus is it convenient to use it as picker.",
@@ -198,11 +198,11 @@ private fun Counter(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(SpacingSmall)
     ) {
-        Button(onClick = onMinus, colors = ButtonDefaults.buttonColors(MaterialTheme.colors.secondary)) {
+        Button(onClick = onMinus, colors = ButtonDefaults.buttonColors(MaterialTheme.colorScheme.secondary)) {
             Text(text = "-")
         }
         Text(text = counter.toString())
-        Button(onClick = onPlus, colors = ButtonDefaults.buttonColors(MaterialTheme.colors.secondary)) {
+        Button(onClick = onPlus, colors = ButtonDefaults.buttonColors(MaterialTheme.colorScheme.secondary)) {
             Text(text = "+")
         }
     }

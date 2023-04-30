@@ -1,49 +1,78 @@
 package eu.wewox.modalsheet.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Typography
-import androidx.compose.material.darkColors
-import androidx.compose.material.lightColors
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Typography
+import androidx.compose.material3.darkColorScheme
+import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.graphics.Color
-import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.sp
 
-private val DarkColorPalette = darkColors(
+private val DarkColorPalette = darkColorScheme(
     primary = LightBlue,
-    primaryVariant = LightBlue,
     secondary = LightYellow,
-    secondaryVariant = LightYellow,
 
     onPrimary = Color.Black,
     onSecondary = Color.Black,
 )
 
-private val LightColorPalette = lightColors(
+private val LightColorPalette = lightColorScheme(
     primary = LightBlue,
-    primaryVariant = LightBlue,
     secondary = LightYellow,
-    secondaryVariant = LightYellow,
 
     onPrimary = Color.Black,
     onSecondary = Color.Black,
 )
 
+private val Typography = Typography(
+    displayLarge = TextStyle(
+        fontWeight = FontWeight.Bold,
+        fontSize = 28.sp
+    ),
+    displayMedium = TextStyle(
+        fontWeight = FontWeight.Bold,
+        fontSize = 18.sp
+    ),
+    displaySmall = TextStyle(
+        fontWeight = FontWeight.Normal,
+        fontSize = 16.sp
+    ),
+    titleMedium = TextStyle(
+        fontWeight = FontWeight.Bold,
+        fontSize = 16.sp
+    ),
+    titleSmall = TextStyle(
+        fontWeight = FontWeight.Bold,
+        fontSize = 14.sp
+    ),
+    bodyLarge = TextStyle(
+        fontWeight = FontWeight.Normal,
+        fontSize = 14.sp
+    ),
+    labelSmall = TextStyle(
+        fontWeight = FontWeight.Normal,
+        fontSize = 12.sp
+    ),
+    bodySmall = TextStyle(
+        fontWeight = FontWeight.Bold,
+        fontSize = 12.sp
+    ),
+    labelLarge = TextStyle(
+        fontWeight = FontWeight.Bold,
+        fontSize = 14.sp
+    )
+)
 /**
- * The theme to use for deo application.
+ * IMPORTANT: This should only be used for previews!
  */
 @Composable
-fun ModalSheetDemoTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
-    val sysUiController = rememberSystemUiController()
-    SideEffect {
-        sysUiController.setSystemBarsColor(
-            color = Color.Transparent,
-            darkIcons = !darkTheme,
-            isNavigationBarContrastEnforced = false
-        )
-    }
-
+internal fun ModalSheetDemoTheme(
+    darkTheme: Boolean = isSystemInDarkTheme(),
+    content: @Composable () -> Unit,
+) {
     val colors = if (darkTheme) {
         DarkColorPalette
     } else {
@@ -51,8 +80,8 @@ fun ModalSheetDemoTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Co
     }
 
     MaterialTheme(
-        colors = colors,
-        typography = Typography(),
+        colorScheme = colors,
+        typography = Typography,
         shapes = Shapes,
         content = content
     )

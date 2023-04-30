@@ -2,8 +2,8 @@ package eu.wewox.modalsheet.ui.components
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import eu.wewox.modalsheet.ui.theme.SpacingMedium
@@ -17,7 +17,7 @@ import eu.wewox.modalsheet.ui.theme.SpacingMedium
 fun TopBar(title: String) {
     Text(
         text = title,
-        style = MaterialTheme.typography.h4,
+        style = MaterialTheme.typography.headlineMedium,
         modifier = Modifier
             .padding(SpacingMedium)
             .statusBarsPadding()
